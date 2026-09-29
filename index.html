@@ -3,115 +3,356 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Fundamentos JavaScript — exemplos e exercícios com instruções para execução.">
-  <title>Fundamentos JavaScript — Como executar</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Cursos JavaScript — Como rodar os exemplos</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface-2: #1c2129;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #d4c14e99;
+      --accent-solid: #e3d05a;
+      --ok: #3fb950;
+      --warn: #d29922;
+      --vue: #42b883;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 3rem 1.25rem 4rem;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+    }
+
+    main { max-width: 820px; margin: 0 auto; }
+
+    h1 { font-size: 2rem; margin: 0 0 0.6rem; letter-spacing: -0.01em; }
+    h1 span { color: var(--accent-solid); }
+
+    .intro { color: var(--muted); margin: 0 0 2.25rem; max-width: 64ch; }
+
+    h2 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+      margin: 2.75rem 0 0.9rem;
+      font-weight: 600;
+    }
+
+    /* --- Pré-requisitos --- */
+    .setup {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.35rem 1.5rem;
+    }
+
+    .setup ol { margin: 0; padding-left: 1.3rem; }
+    .setup li { margin-bottom: 0.9rem; }
+    .setup li:last-child { margin-bottom: 0; }
+
+    .prompt { color: var(--accent-solid); font-weight: 600; }
+
+    /* --- Cards --- */
+    .repo {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.4rem 1.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .repo-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .repo-title { font-weight: 600; font-size: 1.05rem; margin: 0; }
+
+    .path {
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.76rem;
+      color: var(--muted);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.1rem 0.45rem;
+    }
+
+    .repo-desc { color: var(--muted); font-size: 0.92rem; margin: 0 0 1rem; }
+
+    .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      font-weight: 600;
+      margin: 0 0 0.45rem;
+    }
+
+    pre {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.8rem 1rem;
+      overflow-x: auto;
+      margin: 0 0 0.9rem;
+    }
+
+    code {
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.84rem;
+    }
+
+    pre code { color: var(--text); }
+
+    p code, li code {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.08rem 0.35rem;
+      font-size: 0.85em;
+    }
+
+    .steps { margin: 0 0 0.9rem; padding-left: 1.3rem; font-size: 0.92rem; }
+    .steps li { margin-bottom: 0.35rem; }
+    .steps li:last-child { margin-bottom: 0; }
+
+    .url {
+      display: inline-block;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.82rem;
+      color: var(--accent-solid);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--accent-solid);
+      word-break: break-all;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      padding: 0.12rem 0.5rem;
+      border-radius: 999px;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .tag-browser { color: var(--ok);        border: 1px solid var(--ok); }
+    .tag-node    { color: var(--warn);      border: 1px solid var(--warn); }
+    .tag-vue     { color: var(--vue);       border: 1px solid var(--vue); }
+
+    .note {
+      margin-top: 2.5rem;
+      padding: 0.9rem 1.1rem;
+      border-left: 3px solid var(--border);
+      color: var(--muted);
+      font-size: 0.87rem;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer a { color: var(--accent-solid); }
+  </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <span class="eyebrow">ROGER-KK • JAVASCRIPT</span>
-      <h1>Fundamentos JavaScript</h1>
-      <p>Exemplos e exercícios para estudar os fundamentos da linguagem JavaScript, com instruções para executar cada arquivo.</p>
-      <div class="actions">
-        <a class="button primary" href="https://github.com/Roger-Kk/Fundamentos-JS" target="_blank" rel="noopener">Ver no GitHub</a>
-        <a class="button" href="#como-rodar">Como começar</a>
-      </div>
+  <main>
+    <h1>Fundamentos <span>JavaScript</span></h1>
+    <p class="intro">
+      Exemplos e exercícios do repositório <strong>Fundamentos-JS</strong>, organizados
+      por temas para facilitar o estudo da linguagem. Os arquivos são executados
+      diretamente com Node.js e não dependem de uma aplicação web.
+    </p>
+
+    <h2>Antes de começar</h2>
+    <div class="setup">
+      <ol>
+        <li>
+          <span class="prompt">Clone o repositório.</span> Copie tudo para o seu
+          computador com:
+          <pre><code>git clone https://github.com/Roger-Kk/Fundamentos-JS.git
+cd Fundamentos-JS</code></pre>
+          Sem Git instalado? Use o botão verde <em>Code → Download ZIP</em> no GitHub
+          e descompacte.
+        </li>
+        <li>
+          <span class="prompt">Tenha o Node.js instalado.</span> Para conferir:
+          <pre><code>node -v
+npm -v</code></pre>
+          Se aparecerem as versões, está pronto.
+        </li>
+        <li>
+          <span class="prompt">Abra a pasta no VS Code.</span> Depois de clonar,
+          abra a pasta <code>Fundamentos-JS</code> no Visual Studio Code.
+        </li>
+        <li>
+          <span class="prompt">Execute os arquivos pelo terminal.</span> Use
+          <code>node</code> seguido do nome do arquivo:
+          <pre><code>node 01_variaveis.js</code></pre>
+        </li>
+        <li>
+          <span class="prompt">Instale as dependências</span> para o desafio
+          <code>7daysOfCode.js</code>:
+          <pre><code>npm install</code></pre>
+        </li>
+      </ol>
     </div>
-  </header>
 
-  <main class="container">
-    <section id="como-rodar" class="intro">
-      <h2>Antes de começar</h2>
-      <div class="steps">
-        <article><strong>01</strong><h3>Clone o projeto</h3><code>git clone https://github.com/Roger-Kk/Fundamentos-JS.git</code></article>
-        <article><strong>02</strong><h3>Abra no VS Code</h3><p>Abra a pasta do projeto no Visual Studio Code.</p></article>
-        <article><strong>03</strong><h3>Tenha o Node.js</h3><p>Confira com <code>node -v</code> e <code>npm -v</code>.</p></article>
-        <article><strong>04</strong><h3>Execute os exemplos</h3><p>Use <code>node nomeDoArquivo.js</code> no terminal.</p></article>
+    <h2>01 — Fundamentos da linguagem</h2>
+    <div class="repo">
+      <div class="repo-head">
+        <h3 class="repo-title">Variáveis, tipos e operadores</h3>
+        <span class="path">01_*.js</span>
+        <span class="tag tag-node">roda com Node</span>
       </div>
-    </section>
+      <p class="repo-desc">
+        Primeiros conceitos de JavaScript: variáveis, tipos primitivos, operadores,
+        funções e características da linguagem.
+      </p>
+      <p class="label">Como rodar</p>
+      <pre><code>node 01_variaveis.js
+node 01_tiposPrimitivos.js
+node 01_operadores.js
+node 01_funcoes.js
+node 01_caracteristicas.js</code></pre>
+    </div>
 
-    <section>
-      <div class="section-heading">
-        <span>01</span>
-        <div><h2>Fundamentos da linguagem</h2><p>Os primeiros conceitos de JavaScript.</p></div>
+    <h2>02 — Funções, callbacks e arrays</h2>
+    <div class="repo">
+      <div class="repo-head">
+        <h3 class="repo-title">Funções e callbacks</h3>
+        <span class="path">02_*.js</span>
+        <span class="tag tag-node">roda com Node</span>
       </div>
-      <div class="grid">
-        <article class="card"><h3>Variáveis</h3><p>Declaração e utilização de variáveis.</p><code>node 01_variaveis.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/01_variaveis.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Tipos primitivos</h3><p>Números, strings e operações básicas.</p><code>node 01_tiposPrimitivos.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/01_tiposPrimitivos.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Operadores</h3><p>Comparações e diferença entre <code>==</code> e <code>===</code>.</p><code>node 01_operadores.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/01_operadores.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Funções</h3><p>Declaração, parâmetros e execução de funções.</p><code>node 01_funcoes.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/01_funcoes.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>JavaScript e seus conceitos</h3><p>Tipagem dinâmica e características multiparadigma.</p><code>node 01_jsErros.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/01_jsErros.js" target="_blank">Ver código →</a></article>
+      <p class="repo-desc">
+        Exercícios com funções, callbacks, classes, estruturas de repetição e métodos
+        de array como <code>map</code>.
+      </p>
+      <p class="label">Como rodar</p>
+      <pre><code>node 02_funcoes.js
+node 02_callback.js
+node 02_classes.js
+node 02_for.js
+node 02_map.js
+node 02_media.js</code></pre>
+    </div>
+
+    <h2>03 — Objetos e redução de arrays</h2>
+    <div class="repo">
+      <div class="repo-head">
+        <h3 class="repo-title">Objetos, referências e relatório</h3>
+        <span class="path">03_*.js</span>
+        <span class="tag tag-node">roda com Node</span>
       </div>
-    </section>
+      <p class="repo-desc">
+        Prática com objetos, referências de objetos, geração de relatórios e o método
+        <code>reduce</code> para trabalhar com coleções de dados.
+      </p>
+      <p class="label">Como rodar</p>
+      <pre><code>node 03_objetos.js
+node 03_referencia.js
+node 03_relatorio.js
+node 03_reduce.js</code></pre>
+    </div>
 
-    <section>
-      <div class="section-heading"><span>02</span><div><h2>Funções, callbacks e métodos</h2><p>Funções, classes, loops e métodos de array.</p></div></div>
-      <div class="grid">
-        <article class="card"><h3>Callback</h3><p>Funções passadas como parâmetro para outras funções.</p><code>node 02_callback.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/02_callback.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Classes</h3><p>Classes, construtor, atributos e métodos.</p><code>node 02_classes.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/02_classes.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>For</h3><p>Estrutura de repetição para percorrer arrays.</p><code>node 02_for.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/02_for.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Map</h3><p>Transformação de elementos de um array com <code>map()</code>.</p><code>node 02_map.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/02_map.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Média</h3><p>Exercício de cálculo de média com arrays.</p><code>node 02_media.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/02_media.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Funções construtoras</h3><p>Criação de clientes e utilização de métodos.</p><code>node 02_funcoes.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/02_funcoes.js" target="_blank">Ver código →</a></article>
+    <h2>04 — Arrays e algoritmos</h2>
+    <div class="repo">
+      <div class="repo-head">
+        <h3 class="repo-title">Manipulação de arrays</h3>
+        <span class="path">04_*.js</span>
+        <span class="tag tag-node">roda com Node</span>
       </div>
-    </section>
+      <p class="repo-desc">
+        Exercícios envolvendo divisão de arrays, matrizes, ordenação e algoritmos
+        clássicos de ordenação.
+      </p>
+      <p class="label">Como rodar</p>
+      <pre><code>node 04_divisaoArray.js
+node 04_array2D.js
+node 04_ordenacao.js
+node 04_insertionSort.js
+node 04_selectionSort.js</code></pre>
+    </div>
 
-    <section>
-      <div class="section-heading"><span>03</span><div><h2>Objetos e reduce()</h2><p>Manipulação de objetos e processamento de arrays.</p></div></div>
-      <div class="grid">
-        <article class="card"><h3>Objetos</h3><p>Criação e acesso às propriedades de objetos.</p><code>node 03_objetos.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/03_objetos.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Referência de objetos</h3><p>Diferenças entre valores primitivos e referências.</p><code>node 03_referenciaObjeto.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/03_referenciaObjeto.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Relatório</h3><p>Objetos com arrays e estruturas aninhadas.</p><code>node 03_relatorio.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/03_relatorio.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Reduce</h3><p>Agregação de valores para calcular médias.</p><code>node 03_reduce.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/03_reduce.js" target="_blank">Ver código →</a></article>
+    <h2>05 — Estruturas de controle</h2>
+    <div class="repo">
+      <div class="repo-head">
+        <h3 class="repo-title">Atribuição, listas e condicionais</h3>
+        <span class="path">05_*.js</span>
+        <span class="tag tag-node">roda com Node</span>
       </div>
-    </section>
+      <p class="repo-desc">
+        Exercícios com atribuição, listas, condicionais, conversão de tipos e
+        estruturas de repetição.
+      </p>
+      <p class="label">Como rodar</p>
+      <pre><code>node 05_atribuicao.js
+node 05_listas.js
+node 05_condicionais.js
+node 05_conversaoTipos.js
+node 05_loops.js</code></pre>
+    </div>
 
-    <section>
-      <div class="section-heading"><span>04</span><div><h2>Arrays e algoritmos</h2><p>Manipulação de listas e algoritmos de ordenação.</p></div></div>
-      <div class="grid">
-        <article class="card"><h3>Divisão de arrays</h3><p>Uso de <code>slice()</code> para dividir listas.</p><code>node 04_divisaoArrays.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/04_divisaoArrays.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Lista de duas dimensões</h3><p>Arrays que armazenam outros arrays.</p><code>node 04_listaDuasDimensoes.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/04_listaDuasDimensoes.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Ordenação</h3><p>Busca do menor valor em uma lista.</p><code>node 04_ordenação.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/04_ordenação.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Insertion Sort</h3><p>Algoritmo clássico de ordenação.</p><code>node 04_insertionSort.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/04_insertionSort.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Selection Sort</h3><p>Ordenação por seleção aplicada a objetos.</p><code>node 04_selectionSort.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/04_selectionSort.js" target="_blank">Ver código →</a></article>
+    <h2>Desafio — 7 Days of Code</h2>
+    <div class="repo">
+      <div class="repo-head">
+        <h3 class="repo-title">7 Days of Code</h3>
+        <span class="path">7daysOfCode.js</span>
+        <span class="tag tag-node">roda com Node</span>
       </div>
-    </section>
+      <p class="repo-desc">
+        Desafio prático de JavaScript com interação pelo terminal utilizando
+        <code>prompt-sync</code>.
+      </p>
+      <p class="label">Como rodar</p>
+      <pre><code>npm install
+node 7daysOfCode.js</code></pre>
+    </div>
 
-    <section>
-      <div class="section-heading"><span>05</span><div><h2>Lógica, listas, condicionais e loops</h2><p>Exercícios práticos de lógica de programação.</p></div></div>
-      <div class="grid">
-        <article class="card"><h3>Atribuição</h3><p>Atribuição e manipulação de variáveis.</p><code>node 05_atribuicaoVariaveis.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/05_atribuicaoVariaveis.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Listas</h3><p>Criação e manipulação de listas.</p><code>node 05_listas.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/05_listas.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Condicionais</h3><p>Decisões com estruturas condicionais.</p><code>node 05_condicionais.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/05_condicionais.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Conversão de tipos</h3><p>Conversões e comportamento dos tipos em JavaScript.</p><code>node 05_conversaoDetipos.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/05_conversaoDetipos.js" target="_blank">Ver código →</a></article>
-        <article class="card"><h3>Loops</h3><p>Estruturas de repetição aplicadas a listas.</p><code>node 05_loops.js</code><a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/05_loops.js" target="_blank">Ver código →</a></article>
+    <h2>Como executar qualquer exercício</h2>
+    <div class="repo">
+      <div class="repo-head">
+        <h3 class="repo-title">Execução pelo terminal</h3>
+        <span class="tag tag-node">roda com Node</span>
       </div>
-    </section>
+      <p class="repo-desc">
+        Todos os exercícios principais podem ser executados individualmente.
+        Basta abrir o terminal na pasta do projeto:
+      </p>
+      <pre><code>node nome-do-arquivo.js</code></pre>
+      <p class="repo-desc">Exemplo:</p>
+      <pre><code>node 03_reduce.js</code></pre>
+    </div>
 
-    <section class="challenge">
-      <div class="section-heading"><span>🚀</span><div><h2>7 Days of Code</h2><p>Desafio prático da Alura com entrada de dados pelo terminal.</p></div></div>
-      <article class="card featured">
-        <h3>7daysOfCode.js</h3>
-        <p>Execute o desafio depois de instalar a dependência <code>prompt-sync</code>.</p>
-        <code>npm install<br>node 7daysOfCode.js</code>
-        <a href="https://github.com/Roger-Kk/Fundamentos-JS/blob/main/7daysOfCode.js" target="_blank">Ver código →</a>
-      </article>
-    </section>
+    <div class="note">
+      Os exemplos deste repositório foram organizados para estudo dos fundamentos
+      de <strong>JavaScript</strong>. A execução acontece localmente com
+      <strong>Node.js</strong>; não é necessário servidor web ou hospedagem.
+    </div>
 
-    <section class="tips">
-      <h2>💡 Dicas</h2>
-      <ul>
-        <li>Os arquivos são independentes; você pode executar apenas o exercício que deseja estudar.</li>
-        <li>O resultado dos scripts aparece no terminal.</li>
-        <li>Use o VS Code para editar e o terminal integrado para executar.</li>
-        <li>Instale dependências com <code>npm install</code> somente quando necessário.</li>
-      </ul>
-    </section>
+    <footer>
+      Repositório:
+      <a href="https://github.com/Roger-Kk/Fundamentos-JS">Roger-Kk/Fundamentos-JS</a>
+      ·
+      <a href="https://roger-kk.github.io/Fundamentos-JS/">Página do projeto</a>
+    </footer>
   </main>
-
-  <footer>
-    <p>Fundamentos JavaScript • <a href="https://github.com/Roger-Kk/Fundamentos-JS">Roger-Kk / Fundamentos-JS</a></p>
-  </footer>
 </body>
 </html>
