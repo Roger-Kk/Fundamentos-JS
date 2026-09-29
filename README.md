@@ -2,8 +2,6 @@
 
 Repositório dedicado ao estudo dos **fundamentos da linguagem JavaScript**, reunindo exemplos, exercícios e desafios desenvolvidos durante os estudos.
 
-Os arquivos estão organizados em conjuntos numerados (`01` a `05`) de acordo com os temas estudados, além do desafio **7 Days of Code**, da Alura.
-
 > O objetivo deste repositório é servir como registro de aprendizagem e consulta dos principais conceitos de JavaScript, desde variáveis e tipos até objetos, arrays, funções, métodos de array, algoritmos de ordenação e estruturas de repetição.
 
 ## Fundamentos da linguagem
