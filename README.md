@@ -62,11 +62,9 @@ A organização não representa necessariamente uma ordem obrigatória de execu�
 
 ## Como executar
 
-Para facilitar a consulta, o projeto possui uma página GitHub Pages com os conteúdos organizados por tema e os respectivos comandos para execução:
+Para facilitar a consulta, o projeto possui uma página GitHub Pages com os conteúdos organizados por tema e os respectivos comandos para execução.
 
-📖**Fundamentos JavaScript — Como rodar os exemplos**
-
-https://roger-kk.github.io/Fundamentos-JS/
+📖**Como rodar exemplos: https://roger-kk.github.io/Fundamentos-JS/
 
 
 ## Repositório relacionado
